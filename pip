@@ -1,1 +1,53 @@
+from typing import List
+
+class Audio:
+    def __init__(self, title: str, url: str, rating: float):
+        self.title = title
+        self.url = url
+        self.rating = rating
+
+class Playlist:
+    def __init__(self, name: str, genre: str):
+        self.name = name
+        self.genre = genre
+        self.audios = []
+
+    def add_audio(self, audio: Audio):
+        self.audios.append(audio)
+
+class User:
+    def __init__(self, username: str):
+        self.username = username
+
+class MusicPlayer:
+    def __init__(self):
+        self.playlists = []
+        self.users = []
+
+    def create_playlist(self, name: str, genre: str) -> Playlist:
+        playlist = Playlist(name, genre)
+        self.playlists.append(playlist)
+        return playlist
+
+    def add_audio_to_playlist(self, audio: Audio, playlist: Playlist):
+        playlist.add_audio(audio)
+
+    def search_audio_by_name(self, name: str) -> List[Audio]:
+        # Implement audio search logic
+        pass
+
+    def search_playlist_by_name(self, name: str) -> List[Playlist]:
+        # Implement playlist search logic
+        pass
+
+    def rate_audio(self, audio: Audio, rating: float):
+        audio.rating = rating
+
+    def rate_playlist(self, playlist: Playlist, rating: float):
+        # Implement playlist rating logic
+        pass
+
+    def calculate_average_rating(self, items: List) -> float:
+        # Implement average rating calculation logic
+        pass
 
